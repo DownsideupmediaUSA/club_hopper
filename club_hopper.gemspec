@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'club_hopper/version'
+# require 'club_hopper/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "club_hopper"
-  spec.version       = ClubHopper::VERSION
-  spec.authors       = ["DownsideupmediaUSA"]
-  spec.email         = ["brandondecarlo@live.com"]
+  spec.version       = "0.1.0"
+  spec.authors       = "DownsideupmediaUSA"
+  spec.email         = "brandondecarlo@live.com"
 
-  spec.summary       = %q{finds this weekends club events in nyc.}
-  spec.description   = %q{scrapes content from 2 club websites and lists out events via command line interface}
+  spec.summary       = "finds this weekends club events in nyc."
+  spec.description   = "scrapes content from 2 club websites and lists out events via command line interface"
   spec.homepage      = "https://github.com/DownsideupmediaUSA/club_hopper.git"
   spec.license       = "MIT"
 
