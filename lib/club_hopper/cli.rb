@@ -1,4 +1,4 @@
-   class ClubHopper::CLI
+   class ClubHopper
 
    def call
      start
@@ -123,7 +123,7 @@
          call
       elsif input == "exit"
         goodbye
-        exit
+        
      else
         puts "Not sure what you want, take a deep breath...."
         call
@@ -134,6 +134,7 @@
 
    def goodbye
     puts "See you next time for the hottest techno/house music events in NYC!!"
+    exit
    end
 
    # end

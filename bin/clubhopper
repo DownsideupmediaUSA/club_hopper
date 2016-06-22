@@ -2,6 +2,6 @@
 
 
 require "bundler/setup"
-require "club_hopper"
+require "../lib/club_hopper"
 
-ClubHopper::CLI.new.call
+ClubHopper.new.call

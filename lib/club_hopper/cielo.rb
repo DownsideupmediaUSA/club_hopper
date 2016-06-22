@@ -45,8 +45,4 @@ class ClubHopper::Cielo
 
 
 
-
-
-
-
 end
