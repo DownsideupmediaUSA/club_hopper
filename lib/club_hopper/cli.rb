@@ -17,6 +17,7 @@
 
    def venue
      puts "So you're lookin' to go out, huh... what club?"
+     puts "----------------------------------------"
      puts <<-DOC 
      1. Output - Brooklyn
      2. Cielo - Manhattan
@@ -74,7 +75,7 @@
 
    def list_friday_event_output
      puts "This Friday's Event at Output Brooklyn!"
-     @events = ClubHopper::Output.this_friday_output
+     @events = ClubHopper::Output.scrape_friday_event_output
      @events.each.with_index(1) do |event, i|
      puts "#{i}. #{event.name} - #{event.date}"
      end
@@ -82,7 +83,7 @@
 
    def list_saturday_event_output
      puts "This Saturday's Event Output Brooklyn!"
-     @events = ClubHopper::Output.this_saturday_output
+     @events = ClubHopper::Output.scrape_saturday_event_output
      @events.each.with_index(1) do |event, i|
      puts "#{i}. #{event.name} - #{event.date} "
      end
@@ -90,7 +91,7 @@
 
    def list_friday_event_cielo
      puts "This Friday's Event at Cielo NYC!"
-     @events = ClubHopper::Cielo.this_friday_cielo
+     @events = ClubHopper::Cielo.scrape_friday_event_cielo
      @events.each.with_index(1) do |event, i|
      puts "#{i}. #{event.date} - #{event.name} "
      end
@@ -100,7 +101,7 @@
 
    def list_saturday_event_cielo
     puts "This Saturday's Event at Cielo NYC!"
-    @events = ClubHopper::Cielo.this_saturday_cielo
+    @events = ClubHopper::Cielo.scrape_saturday_event_cielo
     @events.each.with_index(1) do |event, i|
      puts "#{i}. #{event.name} - #{event.date} "
 

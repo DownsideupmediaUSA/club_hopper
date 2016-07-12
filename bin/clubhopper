@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 
-require "bundler/setup"
-require "../lib/club_hopper"
+# require "bundler/setup"
+require_relative "../lib/club_hopper"
 
 ClubHopper.new.call
