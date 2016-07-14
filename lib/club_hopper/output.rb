@@ -31,9 +31,9 @@ class ClubHopper::Output
     # events_array = []
     # parse_page = doc.css("")
     #--iterate through parsed content and select next upcoming fridays and saturdays--
-    # event_date = event.date each do |date|
+    # event_date = event.date select{|post-number for friday or saturday| post... every 7 post numbers?}
     # returns first friday & saturday
-    # event_name = event.name each do |name|
+    # event_name = event.name select{|post-number-name for friday or saturday| post... every 7 post numbers?}
     # returns names for first friday and saturday only. 
   # end
 
