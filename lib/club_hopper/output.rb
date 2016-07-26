@@ -43,8 +43,8 @@ class ClubHopper::Output
   doc = Nokogiri::HTML(open("http://outputclub.com/"))
   # pry.start(binding)
   event = self.new
-  event.date = doc.css("#content > article.post-4216.post.type-post.status-publish.format-standard.hentry.category-uncategorized > h1:nth-child(2)").text
-  event.name = doc.css("#content > article.post-4216.post.type-post.status-publish.format-standard.hentry.category-uncategorized > ul > li:nth-child(2) > h2").text
+  event.date = doc.css("#content > article.post-4293.post.type-post.status-publish.format-standard.hentry.category-uncategorized > h1:nth-child(2)").text
+  event.name = doc.css("#content > article.post-4293.post.type-post.status-publish.format-standard.hentry.category-uncategorized > ul > li > h2").text
     
   
   event
@@ -53,8 +53,8 @@ class ClubHopper::Output
   def self.scrape_saturday_outputnyc
   doc = Nokogiri::HTML(open("http://outputclub.com/"))
   event = self.new
-  event.date = doc.css("#content > article.post-4208.post.type-post.status-publish.format-standard.hentry.category-uncategorized > h1:nth-child(2)").text
-  event.name = doc.css("#content > article.post-4208.post.type-post.status-publish.format-standard.hentry.category-uncategorized > ul > li:nth-child(2) > h2:nth-child(1)").text
+  event.date = doc.css("#content > article.post-4154.post.type-post.status-publish.format-standard.hentry.category-uncategorized > h1:nth-child(2)").text
+  event.name = doc.css("#content > article.post-4154.post.type-post.status-publish.format-standard.hentry.category-uncategorized > h1:nth-child(3)").text
   
 
   event
@@ -63,6 +63,21 @@ class ClubHopper::Output
  
 
 end #--class end-->
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
 
 
 
