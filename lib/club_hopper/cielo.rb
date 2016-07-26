@@ -28,7 +28,7 @@ class ClubHopper::Cielo
   def self.scrape_friday_cieloclub 
   html = Nokogiri::HTML(open("http://cieloclub.com"))
   event = self.new
-  event.name = html.css("#main > div.col.col1 > div > ul > li.tfly-event-id-1225311.tfly-org-id-3635.tfly-venue-id-32 > a").text.strip
+  event.name = html.css("#main > div.col.col1 > div > ul > li.tfly-event-id-1216617.tfly-org-id-3635.tfly-venue-id-32").text.strip
   event
   end
 
@@ -36,7 +36,7 @@ class ClubHopper::Cielo
   def self.scrape_saturday_cieloclub 
   html = Nokogiri::HTML(open("http://cieloclub.com"))
   event = self.new
-  event.name = html.css("#main > div.col.col1 > div > ul > li.tfly-event-id-1231659.tfly-org-id-3635.tfly-venue-id-32 > a").text.strip
+  event.name = html.css("#main > div.col.col1 > div > ul > li.tfly-event-id-1216105.tfly-org-id-3635.tfly-venue-id-32").text.strip
      
   event
   end
