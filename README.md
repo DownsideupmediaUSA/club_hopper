@@ -9,10 +9,18 @@ This gem will scrape this weekends events from websites of some of the best club
 Once the gem has been installed (see Installation instructions below):
 run "./bin/clubhopper"
 
-1. You will be asked to choose from the available venues
-2. You will be asked to choose Friday or Saturday 
-3. Event for the night and venue you chose will be displayed. You can either enter "start" to start from the beginning, or "exit" to exit the program
+ULTIMATELY... as this gem grows in funtionality and scale, it will be able to do the following:
 
+1. You will be asked to choose from the available venues
+2. You will be asked to choose a specific date to get a link to more info 
+3. Will ask if you would like to open that link in a browser window 
+4. During this procedure you can enter "exit" to exit the program
+
+BUT...for now in v.1 of the Club Hopper we will focus on Cielo in Manhattan.
+
+1. A list of Cielo's upcoming events will be displayed with its respective index number
+2. To get a link to more detailed info on a specific indexed event you will be asked to select a number from that index 
+3. Link information will be provided and you will be asked if you would like to open this link in a browser window
 
 ## Installation
 
@@ -48,4 +56,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+
+
 
