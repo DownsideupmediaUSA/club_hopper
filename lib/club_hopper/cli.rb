@@ -1,141 +1,54 @@
    class ClubHopper
 
    def call
-     start
-     venue  
-     what_venue
+     puts "Here's what's goin on at Ceilo!!!"
+     ClubHopper::Scraper.new.scrape_events
+
+    list_events
+    
      menu
      goodbye  
    end
 
-   def start
-     puts "The weekend is finally upon us!!"
+
+   def list_events
+     puts "--------------------------------------------------------"
+     ClubHopper::Event.all.each_with_index do |f_event, i|
+     puts "#{i+1} #{f_event.name}"
+     end 
    end
-
-
-
-
-   def venue
-     puts "So you're lookin' to go out, huh... what club?"
-     puts "----------------------------------------"
-     puts <<-DOC 
-     1. Output - Brooklyn
-     2. Cielo - Manhattan
-     DOC
-   end
-
-   def what_venue
-    input = nil
-    input = gets.strip.downcase
-     if  input == "1" 
-       puts "Ah...Output in Brooklyn huh, excellent!"
-       what_day_output
-     elsif input == "2"
-       puts "Ah...Cielo in Manhattan huh, excellent!"
-       what_day_cielo
-     end
-    end
-   end
-
-   def what_day_output
-     puts "What evening, Friday or Saturday?"
-     puts "----------------------------------------"
-     puts <<-DOC 
-      1. Friday Night
-      2. Saturday Night
-     DOC
-     input = nil
-     input = gets.strip.downcase
-       if input == "1"
-       list_friday_event_output
-       elsif input == "2"
-       list_saturday_event_output
-    end
-   end 
-    
-
-     def what_day_cielo
-        puts "What evening, Friday or Saturday?" 
-        puts "----------------------------------------"
-        puts <<-DOC 
-        1. Friday Night
-        2. Saturday Night
-        DOC
-        input = nil
-        input = gets.strip.downcase
-         if input == "1"
-          list_friday_event_cielo
-         elsif input == "2"
-          list_saturday_event_cielo
-       end
-    end 
-     
-
-
-
-   def list_friday_event_output
-     puts "This Friday's Event at Output Brooklyn!"
-     @events = ClubHopper::Output.scrape_friday_event_output
-     @events.each.with_index(1) do |event, i|
-     puts "#{i}. #{event.name} - #{event.date}"
-     end
-   end
-
-   def list_saturday_event_output
-     puts "This Saturday's Event Output Brooklyn!"
-     @events = ClubHopper::Output.scrape_saturday_event_output
-     @events.each.with_index(1) do |event, i|
-     puts "#{i}. #{event.name} - #{event.date} "
-     end
-   end
-
-   def list_friday_event_cielo
-     puts "This Friday's Event at Cielo NYC!"
-     @events = ClubHopper::Cielo.scrape_friday_event_cielo
-     @events.each.with_index(1) do |event, i|
-     puts "#{i}. #{event.date} - #{event.name} "
-     end
-   end
-
-
-
-   def list_saturday_event_cielo
-    puts "This Saturday's Event at Cielo NYC!"
-    @events = ClubHopper::Cielo.scrape_saturday_event_cielo
-    @events.each.with_index(1) do |event, i|
-     puts "#{i}. #{event.name} - #{event.date} "
-
-   end
-   end
-
-
+ 
 
    def menu
-     input = nil
+     input = ""
      while input != "exit"
-        puts "Wanna see what else is going on? Type 'start' to see the start again or 'exit' to exit."
-        input = gets.strip.downcase
+        puts "Select the number of the event for a link to more info, or 'exit' to exit."
+        input = gets.strip 
 
-        if input.to_i > 0
-         the_event = @events[input.to_i-1]
-         puts "#{the_event.name} - #{the_event.date}"
-      elsif input == "start"    
-         puts "Ok...let's see what else is goin' on this weekend... "
-         call
-      elsif input == "exit"
-        goodbye
-        
-     else
-        puts "Not sure what you want, take a deep breath...."
-        call
+        if input.to_i-1 <= ClubHopper::Event.all.size 
+        event = ClubHopper::Event.all[input.to_i-1]
+         puts "Event: #{event.name}"
+         puts "URL: #{event.url}"
+
+         puts "Would you like more info on this event? Y/N or 'exit' to exit."
+         answer = gets.strip
+
+         if ["Y", "YES"].include?(answer.upcase)
+         open_in_browser
+       
+         elsif input == "exit"
+         goodbye   
+         else
+         puts "Not sure what you want, take a deep breath...."
+         list_events
+        end   
+      end
      end
-     
-   end
    end
 
    def goodbye
-    puts "See you next time for the hottest techno/house music events in NYC!!"
+    puts "See you next time for more events at Cielo!!"
     exit
    end
 
-   # end
+   end
